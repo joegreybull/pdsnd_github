@@ -2,7 +2,7 @@
 04/15/202
 
 ### Project Title
-BikeShare
+**BikeShare**
 
 ### Description
 This project allows you to report interesting information about data collected from a multi-city RideShare program. You can select the City, Month and Day Of Week that data was collected, then view the statistics. 
