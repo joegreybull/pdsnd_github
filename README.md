@@ -1,15 +1,26 @@
 ### Date created
-Include the date you created this project and README file.
+04/15/202
 
 ### Project Title
-Replace the Project Title
+BikeShare
 
 ### Description
-Describe what your project is about and what it does
+This project allows you to report interesting information about data collected from a multi-city RideShare program. You can select the City, Month and Day Of Week that data was collected, then view the statistics. 
 
 ### Files used
-Include the files used
+**One program file is included:**
+
+bikeshare.py
+
+**Three data files are needed:**
+
+chicago.csv
+new_york_city.csv
+washington.csv
+
+The data files are NOT included in the project. They can be created as comma separated files with the following fields (you provide the data). This is the header row:
+
+,Start Time,End Time,Trip Duration,Start Station,End Station,User Type,Gender,Birth Year
 
 ### Credits
-It's important to give proper credit. Add links to any repo that inspired you or blogposts you consulted.
-
+Udacity - Introduction to Python course
