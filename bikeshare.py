@@ -25,7 +25,7 @@ def input_prompt(prompt, prompt_list):
     print("Enter the " + prompt)
     for i in range(0,len(prompt_list)):
         print(str(i) + " - " + prompt_list[i])
-    
+
     while True:
         choice = input("Your Choice: ")
         try:
@@ -49,11 +49,11 @@ def get_filters():
     """
     print('Hello! Let\'s explore some US bikeshare data!')
     print()
-    
+
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     city_value = input_prompt('City', Cities)
     city = Cities[int(city_value)]
- 
+
     # TO DO: get user input for month (all, january, february, ... , june)
     month = input_prompt('Month', Months)
 
@@ -88,7 +88,7 @@ def load_data(city, month, day):
         return df
     elif month != 0 and day == 0:
         return df[(df.month == month)]
-    elif month == 0 and day != 0: 
+    elif month == 0 and day != 0:
         return df[(df.day == day - 1)]
     elif month != 0 and day != 0:
         return df[(df.month == int(month)) & (df.day == day - 1)]
@@ -97,7 +97,10 @@ def load_data(city, month, day):
 
 
 def time_stats(df):
-    """Displays statistics on the most frequent times of travel"""
+    """
+    Displays statistics on the most frequent times of travel
+
+    """
 
     print('\nCalculating The Most Frequent Times of Travel...\n')
     start_time = time.time()
@@ -117,12 +120,12 @@ def time_stats(df):
         print("Most Common Weekday = " + most_common_weekday)
     except Exception as e:
         print("Most Common Weekday not available!")
-    
+
     # TO DO: display the most common start hour
     df['hour'] = df['Start Time'].dt.hour
     most_common_hour = df['hour'].mode()[0]
     print("Most Common Hour = " + str(most_common_hour))
- 
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
     return
@@ -130,7 +133,10 @@ def time_stats(df):
 
 
 def station_stats(df):
-    """Displays statistics on the most popular stations and trip."""
+    """
+    Displays statistics on the most popular stations and trip.
+
+    """
 
     print('\nCalculating The Most Popular Stations and Trip...\n')
     start_time = time.time()
@@ -153,7 +159,10 @@ def station_stats(df):
 
 
 def trip_duration_stats(df):
-    """Displays statistics on the total and average trip duration."""
+    """
+    Displays statistics on the total and average trip duration.
+
+    """
 
     print('\nCalculating Trip Duration...\n')
     start_time = time.time()
@@ -174,7 +183,10 @@ def trip_duration_stats(df):
 
 
 def user_stats(df):
-    """Displays statistics on bikeshare users."""
+    """
+    Displays statistics on bikeshare users.
+
+    """
 
     print('\nCalculating User Stats...\n')
     start_time = time.time()
@@ -198,21 +210,29 @@ def user_stats(df):
         print()
         recent_birthday = str(int(df['Birth Year'].max()))
         print("Most Recent Birth Date = " + recent_birthday)
-    
+
         print()
         common_birthday = df['Birth Year'].mode()[0]
         print("Most Common Birth Date = " + str(int(common_birthday)))
-        
+
     except Exception as e:
         print("Birth Date Statistics not available!")
-        
+
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
 def display_top_n(data, rows):
+    """
+    Display the top n rows of data
+
+    """
     print(data.head(rows))
 
 def main():
+    """
+    Main
+
+    """
     while True:
         city, month, day = get_filters()
         df = load_data(city, int(month), int(day))
