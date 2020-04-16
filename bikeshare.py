@@ -24,7 +24,7 @@ Days = ['all','monday','tuesday','wednesday','thursday','friday','saturday','Sun
 def input_prompt(prompt, prompt_list):
     print("Enter the " + prompt)
     for i in range(0,len(prompt_list)):
-        print(str(i) + " - " + prompt_list[i])
+        print("{} - {}".format(str(i),prompt_list[i]))
     
     while True:
         choice = input("Your Choice: ")
@@ -107,22 +107,21 @@ def time_stats(df):
     # TO DO: display the most common month
     try:
         most_common_month = df['month'].mode()[0]
-        print("Most Common Month = " + string.capwords(Months[most_common_month]))
+        print("Most Common Month = {}").format(string.capwords(Months[most_common_month]))
     except Exception as e:
         print("Most Common Month not available!")
 
     # TO DO: display the most common day of week
     try:
         most_common_weekday = df['dayoweek'].mode()[0]
-        print("Most Common Weekday = " + most_common_weekday)
+        print("Most Common Weekday = {}".format(most_common_weekday))
     except Exception as e:
         print("Most Common Weekday not available!")
     
     # TO DO: display the most common start hour
     df['hour'] = df['Start Time'].dt.hour
     most_common_hour = df['hour'].mode()[0]
-    print("Most Common Hour = " + str(most_common_hour))
- 
+    print("Most Common Hour = {}".format(most_common_hour))
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
     return
@@ -137,16 +136,16 @@ def station_stats(df):
 
     # TO DO: display most commonly used start station
     most_common_start = df['Start Station'].mode()[0]
-    print("Most Common Start Station = " + most_common_start)
+    print("Most Common Start Station = {}".format(most_common_start))
 
     # TO DO: display most commonly used end station
     most_common_end = df['End Station'].mode()[0]
-    print("Most Common End Station = " + most_common_end)
+    print("Most Common End Station = {}".format(most_common_end))
 
     # TO DO: display most frequent combination of start station and end station trip
     df['Combined Stations'] = df['Start Station'] + " to " + df['End Station']
     most_common_route = df['Combined Stations'].mode()[0]
-    print("Most Common Route = " + most_common_route)
+    print("Most Common Route = {}".format(most_common_route))
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
@@ -167,8 +166,8 @@ def trip_duration_stats(df):
     # TO DO: display mean travel time
     mean_trip_duration = df['Trip Duration'].mean()
     mean_trip_time = str(datetime.timedelta(seconds=int(mean_trip_duration)))
-    print("Mean Trip Time = " + mean_trip_time)
-
+#    print("Mean Trip Time = " + mean_trip_time)
+    print("Mean Trip Time = {}".format(mean_trip_time))
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
 
@@ -193,15 +192,15 @@ def user_stats(df):
     print()
     try:
         earliest_birthday = str(int(df['Birth Year'].min()))
-        print("Earliest Birth Date = " + earliest_birthday)
+        print("Earliest Birth Date = {}".format(earliest_birthday))
 
         print()
         recent_birthday = str(int(df['Birth Year'].max()))
-        print("Most Recent Birth Date = " + recent_birthday)
+        print("Most Recent Birth Date = {}".format(recent_birthday))
     
         print()
         common_birthday = df['Birth Year'].mode()[0]
-        print("Most Common Birth Date = " + str(int(common_birthday)))
+        print("Most Common Birth Date = {}".format(str(int(common_birthday))))
         
     except Exception as e:
         print("Birth Date Statistics not available!")
